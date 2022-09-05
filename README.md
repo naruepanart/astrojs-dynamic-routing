@@ -1,1 +1,1 @@
-# Welcome to Astro (Dynamic Routes)
+# Welcome to AstroJS Dynamic Page
