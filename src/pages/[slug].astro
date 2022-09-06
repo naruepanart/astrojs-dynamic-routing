@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { fetchWithTimeout } from "../utility/fetchWithTimeout";
 
+// SSG
 /* export async function getStaticPaths() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts = await res.json();
@@ -27,13 +29,11 @@ import Layout from "../layouts/Layout.astro";
 const { post } = Astro.props; */
 
 // SSR
-const res = await fetch(`http://localhost:3000/api/posts/${Astro.params.slug}`);
+const res = await fetchWithTimeout(`http://localhost:3000/api/posts/${Astro.params.slug}`);
 const post = await res.json();
 
-function isEmpty(obj: any) {
-  return Object.keys(obj).length === 0;
-}
-if (isEmpty(post)) {
+
+if (Object.keys(post).length === 0) {
   return Astro.redirect("/404");
 }
 ---

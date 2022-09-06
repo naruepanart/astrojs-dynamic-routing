@@ -1,8 +1,8 @@
 import { fetchWithTimeout } from "../../../utility/fetchWithTimeout";
 
-export async function get({ params }) {
+export async function get() {
   const res = await fetchWithTimeout(
-    `https://jsonplaceholder.typicode.com/posts/${params.id}`
+    `https://jsonplaceholder.typicode.com/posts`
   );
   const post = await res.json();
 
