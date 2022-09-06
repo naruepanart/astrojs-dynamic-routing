@@ -11,7 +11,7 @@ export async function get() {
   });
 }
 
-export async function post({ request }) {
+/* export async function post({ request }) {
   const data = await request.json();
 
   const saveToDB = {
@@ -29,3 +29,4 @@ export async function post({ request }) {
 
   return new Response(JSON.stringify(responseData), { status: 201 });
 }
+ */
