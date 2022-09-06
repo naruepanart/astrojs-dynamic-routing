@@ -1,0 +1,16 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+### 
+GET http://{{host}}/api/posts
+Content-Type: {{contentType}}
+
+###
+POST http://{{host}}/api/posts
+Content-Type: {{contentType}}
+
+{
+    "name":"name 101"
+}
