@@ -27,10 +27,15 @@ import Layout from "../layouts/Layout.astro";
 const { post } = Astro.props; */
 
 // SSR
-const res = await fetch(
-  `https://jsonplaceholder.typicode.com/posts/${Astro.params.slug}`
-);
+const res = await fetch(`http://localhost:3000/api/posts/${Astro.params.slug}`);
 const post = await res.json();
+
+function isEmpty(obj: any) {
+  return Object.keys(obj).length === 0;
+}
+if (isEmpty(post)) {
+  return Astro.redirect("/404");
+}
 ---
 
 <Layout title={post.title}>
