@@ -1,10 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-export async function getStaticPaths() {
+/* export async function getStaticPaths() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts = await res.json();
 
+  // Ex.1
   return posts.map((post: any) => ({
     params: {
       slug: post.id.toString(),
@@ -13,9 +14,23 @@ export async function getStaticPaths() {
       post,
     },
   }));
+
+  // Ex.2
+  return posts.map((post: any) => {
+    return {
+      params: { slug: post.id.toString() },
+      props: { post },
+    };
+  });
 }
 
-const { post } = Astro.props;
+const { post } = Astro.props; */
+
+// SSR
+const res = await fetch(
+  `https://jsonplaceholder.typicode.com/posts/${Astro.params.slug}`
+);
+const post = await res.json();
 ---
 
 <Layout title={post.title}>
