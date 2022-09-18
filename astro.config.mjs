@@ -6,4 +6,5 @@ export default defineConfig({
   output: "server",
   adapter: netlify(),
   integrations: [],
+  server: { port: 3000 }
 });

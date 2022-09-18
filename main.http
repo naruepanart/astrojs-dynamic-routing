@@ -4,13 +4,29 @@
 @contentType = application/json
 
 ### 
-GET http://{{host}}/api/posts
+GET http://{{host}}/api/calculator
+Content-Type: {{contentType}}
+
+### 
+GET http://{{host}}/api/calculator/6
 Content-Type: {{contentType}}
 
 ###
-POST http://{{host}}/api/posts
+POST http://{{host}}/api/calculator
 Content-Type: {{contentType}}
 
 {
-    "name":"name 101"
+    "title":"title 10"
 }
+
+### 
+PATCH http://{{host}}/api/calculator/63199ad2f701eb237b858d35
+Content-Type: {{contentType}}
+
+{
+    "title":"title 15"
+}
+
+### 
+DELETE http://{{host}}/api/calculator/63199ad2f701eb237b858d35
+Content-Type: {{contentType}}
