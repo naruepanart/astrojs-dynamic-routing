@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { fetchWithTimeout } from "../utility/fetchWithTimeout";
 
-const res = await fetchWithTimeout("https://astrojs-dynamic-page.netlify.app/api/posts");
+const res = await fetchWithTimeout("http://localhost:3000/api/calculator");
 const posts = await res.json();
 ---
 
@@ -10,10 +10,10 @@ const posts = await res.json();
   <h1>AstroJS Dynamic Page Server-side Rendering</h1>
   <main>
     {
-      posts.map((x: any) => (
+      posts.data.map((x: any) => (
         <div>
-          <a href={`${x.id}`}>
-            {x.id} - {x.title}
+          <a href={`${x._id}`}>
+            {x._id} : {x.title} ({x.createdAt})
           </a>
         </div>
       ))

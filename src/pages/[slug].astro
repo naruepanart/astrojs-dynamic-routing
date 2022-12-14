@@ -29,7 +29,7 @@ import { fetchWithTimeout } from "../utility/fetchWithTimeout";
 const { post } = Astro.props; */
 
 // SSR
-const res = await fetchWithTimeout(`https://astrojs-dynamic-page.netlify.app/api/posts/${Astro.params.slug}`);
+const res = await fetchWithTimeout(`http://localhost:3000/api/calculator/${Astro.params.slug}`);
 const post = await res.json();
 
 
@@ -38,7 +38,7 @@ if (Object.keys(post).length === 0) {
 }
 ---
 
-<Layout title={post.title}>
-  <h1>{post.title}</h1>
-  <p>{post.body}</p>
+<Layout title={post.data.title}>
+  <h1>{post.data.title}</h1>
+  <p>{post.data.createdAt}</p>
 </Layout>
