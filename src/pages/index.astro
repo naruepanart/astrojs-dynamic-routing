@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { fetchWithTimeout } from "../utility/fetchWithTimeout";
 
-const res = await fetchWithTimeout("http://localhost:3000/api/calculator");
+const res = await fetchWithTimeout("https://astrojs-dynamic-page.netlify.app/api/calculator");
 const posts = await res.json();
 ---
 
